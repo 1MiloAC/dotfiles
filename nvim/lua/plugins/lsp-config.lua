@@ -8,45 +8,48 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls" }
-            })
-        end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+            require("mason-lspconfig").setup()
+            require("mason-lspconfig").setup_handlers {
+                function (server_name)
+                    require("lspconfig")[server_name].setup {}
+                end,
 
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = {
-                                'vim',
+            ["lua_ls"] = function ()
+                require("lspconfig").lua_ls.setup({
+                    settings = {
+                        Lua = {
+                            diagnostics ={
+                                globals = {"vim"}
                             }
                         }
                     }
-                },
-                capabilities = capabilities
-            })
-            lspconfig.html.setup({
-                capabilities = capabilities
-            })
-            lspconfig.svelte.setup({
-                capabilities = capabilities
-            })
-            lspconfig.ts_ls.setup({
-                capabilities = capabilities
-            })
-            lspconfig.tailwindcss.setup({
-                capabilities = capabilities
-            })
+                })
+            end
+            }
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+        {
+            "SmiteshP/nvim-navbuddy",
+            dependencies = {
+                "SmiteshP/nvim-navic",
+                "MunifTanjim/nui.nvim"
+            },
+            opts = { lsp = { auto_attach = true } },
+        }
+    },
+        config = function()
+            local navbuddy = require("nvim-navbuddy")
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
             vim.keymap.set({'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+
+            vim.keymap.set('n', '<leader>b', function()
+            navbuddy.open()
+            end)
         end
     }
 }
