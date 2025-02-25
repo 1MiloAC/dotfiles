@@ -1,5 +1,5 @@
 import = [
-    "~/.config/alacritty/themes/themes/catppuccin_frappe.toml"
+    "~/.config/alacritty/themes/themes/catppuccin_Mocha.toml"
     ]
 
 [env]
@@ -26,7 +26,7 @@ style = "Italic"
 padding.x = 5
 padding.y = 5
 decorations = "Buttonless" 
-opacity = 0.8
-blur = true
+##opacity = 0.8
+##blur = true
 
 
