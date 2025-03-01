@@ -201,7 +201,7 @@ local config = {
                 pattern = '*',
                 group = "alpha_temp",
                 callback = function ()
-                    require('lua.config.alpha-nvim').redraw()
+                    require('alpha').redraw()
                     vim.cmd('AlphaRemap')
                 end,
             })
