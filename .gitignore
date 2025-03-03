@@ -1,6 +1,8 @@
 *
 .DS_Store
 lazylock.json
+!fonts/
+!fonts/**
 !nvim/
 !nvim/**
 !alacritty/
