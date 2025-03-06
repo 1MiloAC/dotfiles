@@ -22,6 +22,10 @@ style = "Bold"
 family = "SpaceMono Nerd Font"
 style = "Italic"
 
+[font.bold_italic]
+family = "Victor Mono"
+style = "Bold Italic"
+
 [window]
 padding.x = 5
 padding.y = 5
