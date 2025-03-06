@@ -1,3 +1,0 @@
-return {
-    "boltlessengineer/sense.nvim",
-}
