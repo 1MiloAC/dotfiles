@@ -1,9 +1,10 @@
 *
 **/.DS_Store
-!.gitignore
-!fonts/
-!fonts/**
-!nvim/
-!nvim/**
-!alacritty/
-!alacritty/**
+!.config/**
+!**/.gitignore
+!**/fonts/
+!**/fonts/**
+!**/nvim/
+!**/nvim/**
+!**/alacritty/
+!**/alacritty/**
