@@ -1,0 +1,9 @@
+*
+**/.DS_Store
+!.config/**
+!**/.gitignore
+!**/fonts/
+!**/fonts/**
+!**/nvim/
+!**/nvim/**
+!**/alacritty/themes/cattpuccin*
