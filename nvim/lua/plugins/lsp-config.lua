@@ -26,11 +26,26 @@ return {
 			},
 		},
 		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local navbuddy = require("nvim-navbuddy")
-
 			vim.keymap.set("n", "<leader>b", function()
 				navbuddy.open()
 			end)
+			vim.lsp.config("svelte", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("svelte")
+			vim.lsp.config("tailwindcss", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("stylua", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("stylua")
+			vim.lsp.config("rustanalyzer", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("rustanalyzer")
 		end,
 	},
 }
