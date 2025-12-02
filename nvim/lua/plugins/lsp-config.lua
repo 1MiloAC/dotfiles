@@ -46,6 +46,10 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("rustanalyzer")
+			vim.lsp.config("wgsl_analyzer", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("wgsl_analyzer")
 		end,
 	},
 }
