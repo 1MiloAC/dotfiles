@@ -35,6 +35,10 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("svelte")
+			vim.lsp.config("jdtls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("jdtls")
 			vim.lsp.config("tailwindcss", {
 				capabilities = capabilities,
 			})

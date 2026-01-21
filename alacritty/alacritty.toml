@@ -13,6 +13,7 @@ offset.y = -2
 offset.x = 0
 ## Fonts are provided in the dotfiles repo!
 [font.normal]
+
 family = "SpaceMono Nerd Font"
 style = "Regular"
 
