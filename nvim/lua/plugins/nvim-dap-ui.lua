@@ -19,6 +19,13 @@ return {
 			type = "executable",
 			command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
 		}
+		dap.adapters.java = function(callback)
+			callback({
+				type = "server",
+				host = "127.0.0.1",
+				port = port,
+			})
+		end
 		dap.configurations.cpp = {
 			{
 				name = "Launch file",
@@ -29,6 +36,15 @@ return {
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
+			},
+		}
+		dap.configurations.java = {
+			{
+				type = "java",
+				requerst = "attach",
+				name = "Debug (Attach) - Remote",
+				hostName = "127.0.0.1",
+				port = 5005,
 			},
 		}
 		dap.listeners.before.attach.dapui_config = function()

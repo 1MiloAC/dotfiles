@@ -1,0 +1,10 @@
+theme = "catppuccin-mocha"
+
+font-size = 11.0
+font-family = "SpaceMono Nerd Font"
+font-family-bold = "SpaceMono Nerd Font"
+font-family-italic = "SpaceMono Nerd Font"
+font-family-bold-italic = "VictorMono Nerd Font"
+font-feature=-calt
+font-thicken
+window-decoration = none
