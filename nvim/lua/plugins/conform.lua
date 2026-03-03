@@ -22,6 +22,7 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			rust = { "rustfmt", lsp_format = "fallback" },
 		},
 		-- Set default options
 		default_format_opts = {
