@@ -54,6 +54,10 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("wgsl_analyzer")
+			vim.lsp.config("roslyn_ls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("roslyn_ls")
 		end,
 	},
 }

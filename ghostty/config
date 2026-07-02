@@ -7,4 +7,6 @@ font-family-italic = "SpaceMono Nerd Font"
 font-family-bold-italic = "VictorMono Nerd Font"
 font-feature=-calt
 font-thicken
-window-decoration = none
+window-decoration = auto
+
+background-opacity = 1.00
