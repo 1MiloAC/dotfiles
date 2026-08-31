@@ -58,6 +58,22 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("roslyn_ls")
+			vim.lsp.config("mipsls", {
+				capabilities = capabilities,
+				cmd = { "mips-language-server" },
+				filetypes = { "asm" },
+				settings = {
+					mipsls = {
+						dialect = "Mars",
+						version = "Mips I",
+					},
+				},
+			})
+			vim.lsp.enable("mipsls")
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("clangd")
 		end,
 	},
 }

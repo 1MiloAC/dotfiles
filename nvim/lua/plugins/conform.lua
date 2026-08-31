@@ -24,6 +24,8 @@ return {
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			rust = { "rustfmt", lsp_format = "fallback" },
+			asm = { "asmfmt" },
+			c = { "clang-format" },
 		},
 		-- Set default options
 		default_format_opts = {
