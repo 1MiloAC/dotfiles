@@ -1,0 +1,46 @@
+return {
+	"Quinntyx/minuet-ai.nvim",
+	branch = "v2",
+	config = function()
+		require("harmonize").setup({
+			provider = "openai_fim_compatible",
+			context_window = 1000,
+			throttle = 0,
+			debounce = 200,
+			completion_trigger = "on_insert", -- restore the old behavior: any pause in insert mode triggers (v2's default 'on_type' only fires after you type a character)
+			auto_trigger_ft = { "*" }, -- suggest in every filetype; narrow to e.g. { "rust", "lua" } to limit
+			keymap = {
+				accept = "<M-A>", -- accept whole completion
+				accept_line = "<M-a>", -- accept one line
+				accept_n_lines = "<M-z>", -- accept n lines (prompts for count)
+				trigger = "<M-[>", -- manually request a completion
+				dismiss = "<M-e>",
+			},
+			show_on_completion_menu = true,
+			display = "line", -- v2 replaced `display_singleline = true` with this
+			provider_options = {
+				openai_fim_compatible = {
+					api_key = "TERM", -- non-null env-var placeholder harmonize requires; the local server ignores it
+					name = "Llama.cpp",
+					end_point = "http://localhost:8012/v1/completions",
+					model = "qwen2.5-coder-1.5b",
+					optional = {
+						max_tokens = 256,
+						top_p = 0.9,
+					},
+					template = {
+						prompt = function(context_before_cursor, context_after_cursor, _)
+							return "<|fim_prefix|>"
+								.. context_before_cursor
+								.. "<|fim_suffix|>"
+								.. context_after_cursor
+								.. "<|fim_middle|>"
+						end,
+						suffix = false,
+					},
+				},
+			},
+		})
+	end,
+}
+
